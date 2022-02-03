@@ -8,7 +8,7 @@ sumt=0
 def f(x):
 	return(np.exp(x))
 
-sums=-f(a)-f(b)
+sums=-f(a)+f(b)
 for i in range(l):
 	sumt+=f(a+i*delt)+f(a+(i+1)*delt)
 	if i%2==0:
@@ -21,3 +21,11 @@ print(sumt)
 sums=sums*delt/3
 print("Integration by Simpson's Method is")
 print(sums)
+delt=(b-a)/l
+sums=-f(a)+f(b)
+for i in range(l):
+	if i%2==0:
+		sums+=2*f(a+i*delt)
+	else:
+		sums+=4*f(a+i*delt)
+print(sums*delt/3)
